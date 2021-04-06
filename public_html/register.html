@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+       
+       <script src="js/register.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+          <script >checkLogin();</script>
+        <title>Registration-Form</title>
+
+
+    </head>
+    <body class="bg-nav">
+
+        <nav class="navbar ">
+            <a href ="" class="navbar-brand text-light">NIHAR JAIN</a>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="text-light display-4 mt-50" style="font-size:80px">WELCOME TO <br>NJ WEALTH</h1>
+                    <img src="image/download.jpeg" width="300px">
+                </div>
+                <div class="col-md-4">
+                    <div class="card mt-100">
+                        <div class="card-body">
+                            <form class="form">
+                                 <div id="dstatus" style="visibility: hidden; display:inline;">
+                                    <p id="pstatus" style="color:red;">Invalid Email or Password!!</p>
+                                </div>
+                                <h1 align="center"  style="color:#ff0084;">REGISTER</h1>
+                                <label>Name</label><br>
+                                <input type="text" class="form-control" name="uname" id="uname"><br>
+                                <label>Email</label><br>
+                                <input type="email" class="form-control" name="uemail" id="uemail"><br>
+                                <label>Mobile NO.</label><br>
+                                <input type="number" class="form-control" name="umobile" id="umobile"><br>
+                                <label>Password</label><br>
+                                <input type="password" class="form-control" name="upass" id="upass"><br>
+                                <label>Re-Password</label><br>
+                                <input type="password" class="form-control" name="urepass" id="urepass"><br>
+                                <input type="button" class="btn btn-primary btn-block btn-lg" value="Register" id="register" onclick="saveUser()">
+
+                            </form>
+                            <p>Already a memeber? <a href="login.html">Login</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </body>
+</html>

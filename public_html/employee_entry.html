@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="js/employee_entry.js"></script>
+        <script src="js/logout.js"></script>
+        <script src="http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+        <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script >checkLogin();</script>
+
+        <title>Profile</title>
+    </head>
+
+    <body>
+
+
+
+        <div class="navbar navbar-expand-md navbar-dark bg-dark mb-4 bg-nav align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm" role="navigation">
+            <a class="navbar-brand" href="#"><img src="image/download.jpeg" alt="NJ" width="40" height="40"></a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="dashboard.html">Profile </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" >Employee Entry<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="change_pass.html">Change Password</a>
+                    </li>
+
+
+                </ul>
+                <nav class="form-inline mt-2 mt-md-0">
+
+                    <a class="btn btn-outline-primary" onclick="deleteSession()" >LogOut</a>
+                </nav>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="container">
+            <h2 style="color:#ff0084;">Employee Form</h2>
+            <form id="empForm" method="post">
+                <div class="form-group">
+                    <span><label for="empId">Employee ID:</label> <label id="empIdMsg">
+                        </label></span>
+                    <input type="text" class="form-control" name="empId" id="empId"
+                           placeholder="Enter Employee ID" disabled >
+                </div>
+                <div class="form-group">
+                    <label for="empName">Employee Name:</label>
+                    <input type="text" class="form-control" id="empName"
+                           placeholder="Enter Employee Name" name="empName" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="empEmail">Email:</label>
+                    <input type="email" class="form-control" id="empEmail"
+                           placeholder="Enter Employee Email" name="empEmail" disabled>
+                </div>
+                <center>
+                    <div class="form-group">
+                        <input type="button" class="btn btn-primary" id="empNew" value="New"
+                               onclick="newEmployee();">
+                        <input type="button" class="btn btn-primary" id="empSave" value="Save"
+                               onclick="saveEmployee();" disabled>
+                        <input type="button" class="btn btn-primary" id="empEdit" value="Edit"
+                               onclick="editEmployee();" >
+                        <input type="button" class="btn btn-primary" id="empChange" value="Change"
+                               onclick="updateEmployee();" disabled>
+                        <input type="button" class="btn btn-primary" id="empReset" value="Reset"
+                               onclick="resetForm();" disabled >
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="button" class="btn btn-primary" id="first" value="First"
+                               onclick="getFirst();" >
+                        <input type="button" class="btn btn-primary" id="prev" value="Prev"
+                               onclick="getPrev();" >
+                        <input type="button" class="btn btn-primary" id="next" value="Next"
+                               onclick="getNext();" >
+                        <input type="button" class="btn btn-primary" id="last" value="Last"
+                               onclick="getLast();" >
+
+                    </div>
+                </center>
+            </form>
+        </div>
+        <script>
+
+
+
+
+
+            $(document).ready(getLast());
+            $("#empId").focus(function () {
+//                $(this).css("background-color", "yellow");
+            });
+            $("#empId").blur(function () {
+//                $("#empId").css("background-color", "green").prop("disabled", true);
+//                $("#empName").focus();
+                var empIdVar = $("#empId").val();
+                if (empIdVar === "") {
+//                    alert("Employee ID Required Value");
+                    $("#empId").focus();
+                    return;
+                }
+                var resultObject = getRecord(empIdVar);
+                if (resultObject.status === 200) {
+
+                    var temp = JSON.parse(resultObject.data);
+
+                    var rec_no = temp.rec_no;
+
+
+                    localStorage.setItem(empIdVar, rec_no);
+
+
+
+                    var record = temp.record;
+
+
+                    var re = temp.record;
+                    var n = re.empName;
+                    var e = re.empEmail;
+
+                    $("#empName").val(n);
+                    $("#empEmail").val(e);
+
+                    $("#empNew").prop("disabled", false);
+                    $("#empChange").prop("disabled", true);
+                    $("#empEdit").prop("disabled", false);
+                    $("#empSave").prop("disabled", true);
+                    $("#empReset").prop("disabled", true);
+                    $("#first").prop("disabled", false);
+                    $("#prev").prop("disabled", false);
+                    $("#next").prop("disabled", false);
+                    $("#last").prop("disabled", false);
+                    $("#empId").prop("disabled", true);
+                    $("#empName").prop("disabled", true);
+                    $("#empEmail").prop("disabled", true);
+
+
+                    return;
+                } else if (resultObject.status === 400) {
+                    $("#empSave").prop("disabled", false);
+                    $("#empReset").prop("disabled", false);
+
+                    $("#empChange").prop("disabled", true);
+                    $("#empName").val("");
+                    $("#empEmail").val("");
+                    return;
+                } else {
+                    alert("error");
+                    return;
+                }
+            });
+        </script>
+
+
+    </body>
+
+
+</html>

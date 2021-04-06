@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+            .mt-100{
+                margin-top:100px
+            }
+
+            .mt-50{
+                margin-top:50px
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+        <script src="js/login.js"></script>
+        <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+          <script >checkLogin();</script>
+        <title>Forget Password</title>
+
+
+    </head>
+    <body class="bg-nav">
+
+        <nav class="navbar ">
+            <a href ="" class="navbar-brand text-light">NIHAR JAIN</a>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="text-light display-4 mt-50" style="font-size:80px">WELCOME TO <br>NJ WEALTH</h1>
+                    <img src="image/download.jpeg" width="300px">
+                </div>
+                <div class="col-md-4">
+                    <div class="card mt-100">
+                        <div class="card-body">
+                            <form class="form" >
+                                 <div id="dstatus" style="visibility: hidden; display:inline;">
+                                    <p id="pstatus" style="color:red;">Invalid Email or Password!!</p>
+                                </div>
+                                <h1 align="center"  style="color:#ff0084;">Forget Password</h1>
+
+                                <label>Email</label><br>
+                                <input type="email" class="form-control" name="uemail" id="femail"><br>
+
+                                <input type="button" class="btn btn-primary btn-block btn-lg" value="Get Password" id="getPass" onclick="sendPass()">
+
+                            </form>
+                            <p>Rememeber? <a href="login.html">Login</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </body>
+</html>
