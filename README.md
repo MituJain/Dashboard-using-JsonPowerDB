@@ -39,3 +39,12 @@ Dashboard is full compitible for all types of devices(mobile,pc,tablet) as made 
 
 -------------------------------------------
 
+![Screenshot (106)](https://user-images.githubusercontent.com/63767473/113701289-9374ee80-96f5-11eb-9ddf-cde865a767c2.png)
+
+![Screenshot (107)](https://user-images.githubusercontent.com/63767473/113701393-ba332500-96f5-11eb-8f0b-8920317443bf.png)
+
+![Screenshot (108)](https://user-images.githubusercontent.com/63767473/113701402-bdc6ac00-96f5-11eb-8608-44609772159c.png)
+
+![Screenshot (109)](https://user-images.githubusercontent.com/63767473/113701409-c0290600-96f5-11eb-9e95-c50837fac0a7.png)
+
+![Screenshot (110)](https://user-images.githubusercontent.com/63767473/113701412-c15a3300-96f5-11eb-829b-53dbc5a71820.png)
